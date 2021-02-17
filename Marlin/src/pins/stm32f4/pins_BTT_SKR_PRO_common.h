@@ -392,3 +392,12 @@
 #define ESP_WIFI_MODULE_ENABLE_PIN          PG1
 #define ESP_WIFI_MODULE_GPIO0_PIN           PF14
 #define ESP_WIFI_MODULE_GPIO2_PIN           PF15
+
+//
+// M3/M4/M5 - Spindle/Laser Control
+//
+#if HAS_CUTTER                                    // 
+  #define SPINDLE_DIR_PIN                     PC4
+  #define SPINDLE_LASER_ENA_PIN               PF9  // 
+  #define SPINDLE_LASER_PWM_PIN               PC9  // Hardware PWM
+#endif

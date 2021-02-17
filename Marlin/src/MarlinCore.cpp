@@ -787,6 +787,9 @@ void kill(PGM_P const lcd_error/*=nullptr*/, PGM_P const lcd_component/*=nullptr
 
   TERN_(HAS_CUTTER, cutter.kill()); // Full cutter shutdown including ISR control
 
+  SERIAL_ECHOPGM_P(lcd_error);
+  SERIAL_EOL();
+
   SERIAL_ERROR_MSG(STR_ERR_KILLED);
 
   #if HAS_DISPLAY

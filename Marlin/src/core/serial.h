@@ -264,7 +264,7 @@ extern uint8_t marlin_debug_flags;
 #define SERIAL_ECHOLIST_N(N,V...)   _SLST_N(N,LIST_N(N,V))
 
 #define SERIAL_ECHOPGM_P(P)         (serialprintPGM(P))
-#define SERIAL_ECHOLNPGM_P(P)       (serialprintPGM(P "\n"))
+#define SERIAL_ECHOLNPGM_P(P)       (serialprintPGM(P+"\n"))
 
 #define SERIAL_ECHOPGM(S)           (serialprintPGM(PSTR(S)))
 #define SERIAL_ECHOLNPGM(S)         (serialprintPGM(PSTR(S "\n")))
