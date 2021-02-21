@@ -174,7 +174,15 @@ public:
   #endif // SPINDLE_LASER_PWM
 
   static inline void set_enabled(const bool enable) {
-    set_power(enable ? TERN(SPINDLE_LASER_PWM, (power ?: (unitPower ? upower_to_ocr(cpwr_to_upwr(SPEED_POWER_STARTUP)) : 0)), 255) : 0);
+    if (enable) 
+      set_power(TERN(SPINDLE_LASER_PWM, (power ?: (unitPower ? upower_to_ocr(cpwr_to_upwr(SPEED_POWER_STARTUP)) : 0)), 255));
+    else { 
+      power = 0;
+      unitPower = 0;
+      menuPower = 0;
+      ocr_off(); 
+      isReady = false; 
+    }
   }
 
   // Wait for spindle to spin up or spin down
